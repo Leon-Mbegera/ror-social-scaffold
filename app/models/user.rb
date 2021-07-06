@@ -10,5 +10,11 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :friendships # sent requests
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id" #received requests
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id" # received requests
+
+  def friends
+    friends_array = friendships.map {|friendship| friendship.friend if friendship.confirmed}
+    friends_array += inverse_friendships.map {|friendship| friendship.user if friendship.confirmed}
+    friends_array.compact
+  end
 end
