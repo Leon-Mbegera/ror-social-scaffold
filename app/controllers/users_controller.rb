@@ -14,4 +14,8 @@ class UsersController < ApplicationController
     @inverse_friendships = current_user.inverse_friendships
     @pending_friendships = current_user.pending_friendships
   end
+
+  def friends
+    @friends = current_user.friends
+  end
 end
