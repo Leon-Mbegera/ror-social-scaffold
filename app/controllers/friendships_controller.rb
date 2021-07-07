@@ -15,4 +15,9 @@ class FriendshipsController < ApplicationController
     else
       redirect_to users_path, notice: "Request failed!"
   end
+
+  def destroy
+    Friendship.find_by(id: params[:id]).destroy
+    redirect_to root_path
+  end
 end
