@@ -20,4 +20,9 @@ class FriendshipsController < ApplicationController
     Friendship.find_by(id: params[:id]).destroy
     redirect_to root_path
   end
+
+  def update
+    Friendship.find_by(id: params[:id]).update_attribute(:confirmed, true)
+    redirect_to root_path
+  end
 end
