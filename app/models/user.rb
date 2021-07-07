@@ -12,11 +12,11 @@ class User < ApplicationRecord
   has_many :friendships # sent requests
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id" # received requests
 
-  has_many :friends, -> {where(:confirmed, true)}
-  has_many :friends, through: 'Friendship', source: :friend
+  has_many :pending_friendships, -> { where(confirmed: false) }, class_name: "Friendship", foreign_key: "user_id"
+  has_many :pending_friends, through: :pending_friendships, source: :friend_id
 
-  has_many :pending_friendships, -> { where(confirmed: true) }, class_name: "Friendship", foreign_key: "user_id"
-  has_many :pending_friends, through: :pending_friendships, source: :friend
+  has_many :accepted_friendships, -> { where(confirmed: true) }, class_name: "Friendship"
+  has_many :friends, through: :accepted_friendships, source: :friend_id
 
   def friends
     friends_array = friendships.map {|friendship| friendship.friend if friendship.confirmed}
