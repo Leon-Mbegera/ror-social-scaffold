@@ -28,4 +28,9 @@ class FriendshipsController < ApplicationController
     @friendship.update_attribute(:confirmed, true)
     redirect_to root_path
   end
+
+  private
+  def friendship_params
+    params.require(:friendship).permit(:friend_id, :confirmed)
+  end
 end
