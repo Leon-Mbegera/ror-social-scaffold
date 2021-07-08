@@ -14,15 +14,18 @@ class FriendshipsController < ApplicationController
       redirect_to users_path, notice: "Request sent!"
     else
       redirect_to users_path, notice: "Request failed!"
+    end
   end
 
   def destroy
-    Friendship.find_by(id: params[:id]).destroy
+    @friendship = Friendship.find_by(id: params[:id])
+    @friendship.destroy
     redirect_to root_path
   end
 
   def update
-    Friendship.find_by(id: params[:id]).update_attribute(:confirmed, true)
+    @friendship = Friendship.find_by(id: params[:id])
+    @friendship.update_attribute(:confirmed, true)
     redirect_to root_path
   end
 end
