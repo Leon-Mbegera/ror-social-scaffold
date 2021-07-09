@@ -1,9 +1,11 @@
+<% if current_user != user%>
 <li>
   Name: <%= user.name %>
   <span class="profile-link">
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
   </span>
   <span>
-    <%= link_to "Invite", friendships_path(friendship: {friend_id:user.id, confirmed: false}), method: 'POST' %>
+    <%= link_to "send request", friendships_path(friendship: {friend_id:user.id, confirmed: false}), method: 'POST' %>
   </span>
 </li>
+<% end %>

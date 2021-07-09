@@ -9,11 +9,11 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @friendship = current_user.pending_friendships.build(friend_id: params[:friend_id])
+    @friendship = current_user.pending_friendships.build(friendship_params)
     if @friendship.save
       redirect_to current_user, notice: "Request sent!"
     else
-      redirect_to current_user, notice: "Request failed!"
+      redirect_to root_path, notice: "Request failed!"
     end
   end
 
