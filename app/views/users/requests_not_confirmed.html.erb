@@ -1,0 +1,7 @@
+<h2>Request not yet confirmed</h2>
+<ul>
+  <% @inverse_friendships.each do |inverse|%>
+      <% sender = User.find(inverse.user_id)%>
+      <%= sender.name %>
+  <% end %>
+</ul>
