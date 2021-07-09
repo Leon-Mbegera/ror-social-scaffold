@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
+  get "friends", to: "users#friends"
+  get "requests_not_confirmed", to: "users#requests_not_confirmed"
+
   devise_for :users
   resources :friendships
 
