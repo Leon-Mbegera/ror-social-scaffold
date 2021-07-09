@@ -25,8 +25,8 @@ class FriendshipsController < ApplicationController
 
   def update
     @friendship = Friendship.find_by(id: params[:id])
-    @friendship.update_attribute(:confirmed, true)
-    redirect_to root_path
+    @friendship.confirmed = true
+    redirect_to friends_path
   end
 
   private
