@@ -1,7 +1,14 @@
-<h2>Request not yet confirmed</h2>
+
 <ul>
-  <% @inverse_friendships.each do |inverse|%>
-      <% sender = User.find(inverse.user_id)%>
-      <%= sender.name %>
-  <% end %>
+  <%if @inverse_friendships.any? %>
+  <h2>Received Requests</h2>
+    <% @inverse_friendships.each do |inverse|%>
+        <% sender = User.find(inverse.user_id)%>
+        <div><%= sender.name %></div>
+        <span>
+        <%= link_to "Confirm", friendship_path(id: inverse.user_id), method: "PATCH", class: "btn btn-warning text-dark p-0" %>
+        <%= link_to "Decline", friendship_path(id: inverse.user_id), method: "delete", class: "btn btn-warning text-dark p-0" %>
+        </span>
+    <% end %>
+   <%end%> 
 </ul>
