@@ -1,5 +1,4 @@
 class FriendshipsController < ApplicationController
-
   def index
     @friendships = Friendship.all
   end
@@ -11,9 +10,9 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.pending_friendships.build(friendship_params)
     if @friendship.save
-      redirect_to current_user, notice: "Request sent!"
+      redirect_to current_user, notice: 'Request sent!'
     else
-      redirect_to root_path, notice: "Request failed!"
+      redirect_to root_path, notice: 'Request failed!'
     end
   end
 
@@ -30,6 +29,7 @@ class FriendshipsController < ApplicationController
   end
 
   private
+
   def friendship_params
     params.require(:friendship).permit(:friend_id, :confirmed)
   end
