@@ -8,9 +8,9 @@
       <%= link_to "send request", friendships_path(friendship: {friend_id:user.id, confirmed: false}), method: 'POST' %>
     </span>
     <% elsif current_user.friends.include?(user) %>
-      <%= link_to "Friends", '#' %>
+      <%="Friends"%>
     <% else %>
-      <%= link_to "pending", '#' %>
+      <%="pending"%>
   <% end %>
 </li>
 
