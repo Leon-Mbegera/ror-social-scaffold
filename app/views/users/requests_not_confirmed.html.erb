@@ -10,5 +10,17 @@
         <%= link_to "Decline", friendship_path(inverse.id), method: "delete", class: "btn btn-warning text-dark p-0" %>
         </span>
     <% end %>
+    <hr>
+   <%end%>
+
+   <%if @pending_friendships.any? %>
+  <h2>Sent Requests</h2>
+    <% @inverse_friendships.each do |inverse|%>
+        <% sender = User.find(inverse.friend_id)%>
+        <div><%= sender.name %></div>
+        <span>
+        <%= link_to "Cancel Invitation", friendship_path(inverse.id), method: "delete", class: "btn btn-warning text-dark p-0" %>
+        </span>
+    <% end %>
    <%end%> 
 </ul>
