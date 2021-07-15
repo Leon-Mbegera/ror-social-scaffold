@@ -12,15 +12,6 @@ class User < ApplicationRecord
   has_many :friendships # sent requests
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id' # received requests
 
-  has_many :pending_friendships, -> { where(confirmed: false) }, class_name: 'Friendship', foreign_key: 'user_id'
-  has_many :pending_friends, through: :pending_friendships, source: :friend_id
-
-  has_many :accepted_friendships, -> { where(confirmed: true) }, class_name: 'Friendship'
-  has_many :friends, through: :accepted_friendships, source: :friend_id
-
-  has_many :inverse_friendships, -> { where(confirmed: false) }, class_name: 'Friendship', foreign_key: 'friend_id'
-  has_many :friend_requests, through: :inverse_friendships, source: :user_id
-
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
     friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
@@ -31,9 +22,14 @@ class User < ApplicationRecord
     friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
   end
 
+  def pending_friendships
+    friendships.map { |friendship| friendship unless friendship.confirmed }.compact
+  end
+
   def friend_requests
     inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
   end
+
 
   def confirm_friend(user)
     friendship = inverse_friendships.find { |inverse_friendship| inverse_friendship.user == user }
