@@ -13,8 +13,7 @@ feature 'user signing in and viewing timeline' do
 
  
   scenario 'User view post page' do
-  visit posts_path
-  expect(page).to have_content('Recent posts')
+    visit posts_path
+    expect(page).to have_content('Recent posts')
   end 
-
 end
