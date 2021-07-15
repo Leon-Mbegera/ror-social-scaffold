@@ -1,6 +1,6 @@
 <section class="user-section">
   <h2><%= "#{@user.name}" %></h2>
-  <% if current_user != @user && !current_user.pending_friends.include?(@user) && !current_user.friend_requests.include?(@user) %>
+  <% if current_user != @user && !current_user.pending_friends.include?(@user) && !current_user.friend_requests.include?(@user) && !current_user.friends.include?(@user)%>
   <span>
     <%= link_to "send request", friendships_path(friendship: {friend_id:@user.id, confirmed: false}), method: 'POST', class: "btn btn-success"%>
   </span>
@@ -12,7 +12,9 @@
       <%= render @posts %>
     </ul>
   </article>
-  <% else %>
-  <p> Oops! No posts yet</p>
+  <% elsif @posts.none? && current_user.friends.include?(@user) %>
+  <p> Oops! This user has no posts yet</p>
+  <% elsif current_user.pending_friends.include?(@user)%>
+  <p>You'll see this user's posts when they confirm the friendship</p>
   <%end%>
 </section>
