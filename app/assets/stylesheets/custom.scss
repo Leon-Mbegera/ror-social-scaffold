@@ -6,6 +6,14 @@ $primary-color-light: #dcedc8;
 $primary-color-text: #212121;
 $divider-color: #bdbdbd;
 
+.bg-green {
+  background-color: $primary-color;
+}
+
+.bg-red {
+  background-color: #f00;
+}
+
 * {
   margin: 0;
   padding: 0;

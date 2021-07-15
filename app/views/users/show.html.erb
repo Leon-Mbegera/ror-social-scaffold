@@ -1,14 +1,18 @@
 <section class="user-section">
   <h2><%= "#{@user.name}" %></h2>
-  <% if current_user != @user && !current_user.pending_friends.include?(@user) && !current_user.friend_requests.include?(@user) %>%>
+  <% if current_user != @user && !current_user.pending_friends.include?(@user) && !current_user.friend_requests.include?(@user) %>
   <span>
-    <%= link_to "send request", friendships_path(friendship: {friend_id:@user.id, confirmed: false}), method: 'POST' %>
+    <%= link_to "send request", friendships_path(friendship: {friend_id:@user.id, confirmed: false}), method: 'POST', class: "btn btn-success"%>
   </span>
   <%end%>
+  <% if @posts.any? %>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
       <%= render @posts %>
     </ul>
   </article>
+  <% else %>
+  <p> Oops! No posts yet</p>
+  <%end%>
 </section>

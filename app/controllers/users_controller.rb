@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
   def requests_not_confirmed
     @inverse_friendships = current_user.inverse_friendships
-    @pending_friendships = current_user.pending_friendships
   end
 
   def friends

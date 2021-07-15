@@ -8,7 +8,7 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    @friendship = current_user.pending_friendships.build(friendship_params)
+    @friendship = current_user.friendships.build(friendship_params)
     if @friendship.save
       redirect_to current_user, notice: 'Request sent!'
     else
@@ -23,8 +23,9 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    @friendship = Friendship.find_by(id: params[:id])
+    @friendship = Friendship.find(params[:id])
     @friendship.confirmed = true
+    @friendship.save
     redirect_to friends_path
   end
 
