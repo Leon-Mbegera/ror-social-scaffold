@@ -1,9 +1,10 @@
+<% if current_user != user %>
 <li>
   Name: <%= user.name %>
   <span class="profile-link">
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
   </span>
-  <% if user != current_user && !current_user.pending_friends.include?(user) && !current_user.friend_requests.include?(user) %>
+  <% if !current_user.pending_friends.include?(user) && !current_user.friend_requests.include?(user) %>
     <span>
       <%= link_to "send request", friendships_path(friendship: {friend_id:user.id, confirmed: false}), method: 'POST' %>
     </span>
@@ -13,7 +14,7 @@
       <%="pending"%>
   <% end %>
 </li>
-
+<% end %>
 
 
 
