@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :friendships # sent requests
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id' # received requests
 
+  has_many :pending_friendships, class_name: 'Friendship', foreign_key: 'user_id'
+  has_many :pending_friends, through: :pending_friendships, source: :friend
+
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
     friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
