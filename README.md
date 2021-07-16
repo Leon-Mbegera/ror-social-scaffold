@@ -4,8 +4,8 @@
 
 
 ## screenshots
-<img src=".app/assets/images/users.png" alt="screeshot of user">
-<img src=".app/assets/images/unconfirmed-request.png" alt="screeshot of unconfirmed-request">
+<img src="app\assets\images\users.png" alt="screeshot of user">
+<img src="app\assets\images\unconfirmed-requests.png" alt="screeshot of unconfirmed-request">
 
 ## Built With
 
