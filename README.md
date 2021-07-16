@@ -1,6 +1,11 @@
-# Scaffold for social media app with Ruby on Rails
+# Stay in Touch
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+> This is a social media platform where users can become other's friends. And each user can see their's and their friends posts on the timeline. These posts are also commentable and likable.
+
+
+## screenshots
+<img src=".app/assets/images/users.png" alt="screeshot of user">
+<img src=".app/assets/images/unconfirmed-request.png" alt="screeshot of unconfirmed-request">
 
 ## Built With
 
@@ -12,15 +17,18 @@
 TBA
 
 
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
 Ruby: 2.6.3
 Rails: 5.2.3
 Postgres: >=9.5
+
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+`$ git clone https://github.com/Leon-Mbegera/ror-social-scaffold.git`
+`$ cd ror-social-scaffold`
 
 ### Setup
 

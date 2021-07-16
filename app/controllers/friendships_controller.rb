@@ -23,7 +23,7 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    @friendship = Friendship.find(params[:id])
+    @friendship = Friendship.find_by(id: params[:id])
     @friendship.confirm_friend
     @friendship.save
     redirect_to friends_path

@@ -5,16 +5,16 @@
     <%= link_to "send request", friendships_path(friendship: {friend_id:@user.id, confirmed: false}), method: 'POST', class: "btn btn-success"%>
   </span>
   <%end%>
-  <% if @posts.any? %>
+  <% if @posts.any? && current_user.friends.include?(@user) %>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
       <%= render @posts %>
     </ul>
   </article>
-  <% elsif @posts.none? && current_user.friends.include?(@user) %>
+  <% elsif @posts.none? && current_user.friends.include?(@user)%>
   <p> Oops! This user has no posts yet</p>
-  <% elsif current_user.pending_friends.include?(@user)%>
+  <% elsif current_user.pending_friends.include?(@user) || current_user.inverse_friends.include?(@user)%>
   <p>You'll see this user's posts when they confirm the friendship</p>
   <%end%>
 </section>

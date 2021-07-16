@@ -1,6 +1,6 @@
 <h2>My Friends</h2>
 <ul>
-  <% @friends.each do |friend|%>
+  <% @friends.uniq.each do |friend|%>
     <div> <%= friend.name %> </div>
   <% end %>
 </ul>
