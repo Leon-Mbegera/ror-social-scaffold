@@ -4,10 +4,8 @@ class Friendship < ApplicationRecord
 
   def confirm_friend
     self.confirmed = true
-    Friendship.create!(friend_id: self.user_id,
-                    user_id: self.friend_id,
-                    confirmed: true)
+    Friendship.create!(friend_id: user_id,
+                       user_id: friend_id,
+                       confirmed: true)
   end
-  
-  
 end

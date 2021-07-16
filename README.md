@@ -27,8 +27,8 @@ Postgres: >=9.5
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
-`$ git clone https://github.com/Leon-Mbegera/ror-social-scaffold.git`
-`$ cd ror-social-scaffold`
+1. `$ git clone https://github.com/Leon-Mbegera/ror-social-scaffold.git`
+2. `$ cd ror-social-scaffold`
 
 ### Setup
 
