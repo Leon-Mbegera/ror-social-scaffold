@@ -14,6 +14,8 @@
 
 ## Live Demo
 
+Stay in Touch on Heroku [Click here](https://peaceful-scrubland-26804.herokuapp.com/users/sign_in)
+
 TBA
 
 
