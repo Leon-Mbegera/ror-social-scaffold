@@ -12,6 +12,10 @@
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
 
+## Live Demo
+ 
+Stay in Touch App [Click here](https://peaceful-scrubland-26804.herokuapp.com/users/sign_in)
+
 
 ### Prerequisites
 
