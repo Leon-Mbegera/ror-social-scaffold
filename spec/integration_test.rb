@@ -15,6 +15,9 @@ feature 'user signing in and viewing timeline' do
     visit posts_path
     expect(page).to have_content('Recent posts')
   end
+end
+
+feature 'Frienship features'
 
   scenario 'User send request page' do
     visit users_path
