@@ -28,13 +28,13 @@ feature 'user signing in and viewing timeline' do
     visit request_not_confirmed_path
     click_button 'Confirm'
     redirect_to friends_path
+    expect(page).to have_content('User and Friends posts')
   end
 
   scenario 'User reject friendship invitation' do
     visit request_not_confirmed_path
     click_button 'Decline'
     redirect_to posts_path
+    expect(page).not_to have_content('Other user posts')
   end
-
-
 end
