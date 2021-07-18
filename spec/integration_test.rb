@@ -17,8 +17,7 @@ feature 'user signing in and viewing timeline' do
   end
 end
 
-feature 'Frienship features'
-
+feature 'Frienship features' do
   scenario 'User send request page' do
     visit users_path
     click_button 'Send Request'
