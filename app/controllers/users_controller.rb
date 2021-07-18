@@ -18,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def friends
-    @friends = current_user.friends.include?
+    @friends = current_user.friends
   end
 end
