@@ -26,8 +26,14 @@ feature 'user signing in and viewing timeline' do
 
   scenario 'User accept friendship invitation' do
     visit request_not_confirmed_path
-    click_button 'confirm'
+    click_button 'Confirm'
     redirect_to friends_path
+  end
+
+  scenario 'User reject friendship invitation' do
+    visit request_not_confirmed_path
+    click_button 'Decline'
+    redirect_to posts_path
   end
 
 
