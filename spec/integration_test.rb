@@ -15,4 +15,14 @@ feature 'user signing in and viewing timeline' do
     visit posts_path
     expect(page).to have_content('Recent posts')
   end
+
+  scenario 'User send request page' do
+    visit users_path
+    click_button 'Send Request'
+    redirect_to posts_path
+    visit users_path
+    expect(user_name).to have_content('Pending')
+  end
+
+
 end
