@@ -24,5 +24,11 @@ feature 'user signing in and viewing timeline' do
     expect(user_name).to have_content('Pending')
   end
 
+  scenario 'User accept friendship invitation' do
+    visit request_not_confirmed_path
+    click_button 'confirm'
+    redirect_to friends_path
+  end
+
 
 end
