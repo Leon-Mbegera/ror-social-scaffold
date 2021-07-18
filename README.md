@@ -16,8 +16,6 @@
  
 Stay in Touch App [Click here](https://peaceful-scrubland-26804.herokuapp.com/users/sign_in)
 
-TBA
-
 
 ### Prerequisites
 
